@@ -1,10 +1,96 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Django Technical Documentation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <nav id="navbar">
+        <header>Django Documentation</header>
+        <hr>
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <hr>
+        <a class="nav-link" href="#Installation">Installation</a>
+        <hr>
+        <a class="nav-link" href="#Models">Models</a>
+        <hr>
+        <a class="nav-link" href="#Views">Views</a>
+        <hr>
+        <a class="nav-link" href="#Templates">Templates</a>
+        <hr>
+    </nav>
+
+    <main id="main-doc">
+        <section id="Introduction" class="main-section">
+            <header>Introduction</header>
+            <p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.</p>
+            <p>It was designed to help developers take applications from concept to completion as quickly as possible.</p>
+            <p>Django takes security seriously and helps developers avoid many common security mistakes.</p>
+            <p>The framework is free and open-source, with a large community of developers building and maintaining it.</p>
+            <p>Here are some key features of Django:</p>
+            <ul>
+                <li>Object-Relational Mapping (ORM)</li>
+                <li>Automatic admin interface</li>
+                <li>Elegant URL design</li>
+                <li>Template system</li>
+                <li>Form handling</li>
+            </ul>
+            <code>import django</code>
+        </section>
+
+        <section id="Installation" class="main-section">
+            <header>Installation</header>
+            <p>To install Django, you need to have Python installed on your system.</p>
+            <p>Using pip, you can install Django with the following command:</p>
+            <code>pip install django</code>
+            <p>Once installed, you can verify the installation by checking the version:</p>
+            <code>django-admin --version</code>
+            <p>Django also supports virtual environments to keep dependencies isolated.</p>
+        </section>
+
+        <section id="Models" class="main-section">
+            <header>Models</header>
+            <p>Models are the single, definitive source of information about your data.</p>
+            <p>They contain the essential fields and behaviors of the data you’re storing.</p>
+            <p>Each model maps to a single database table.</p>
+            <p>Here's an example of a simple model:</p>
+            <code>from django.db import models</code>
+            <code>class MyModel(models.Model):</code>
+            <code>    name = models.CharField(max_length=100)</code>
+            <p>After defining models, you can create database tables by running:</p>
+            <code>python manage.py migrate</code>
+        </section>
+
+        <section id="Views" class="main-section">
+            <header>Views</header>
+            <p>Views are Python functions that take a web request and return a web response.</p>
+            <p>They can read records from a database, generate HTML, and return it as a response.</p>
+            <p>Here’s an example view:</p>
+            <code>from django.http import HttpResponse</code>
+            <code>def my_view(request):</code>
+            <code>    return HttpResponse('Hello, World!')</code>
+            <p>To link views to URLs, you need to define URL patterns.</p>
+            <code>from django.urls import path</code>
+            <code>urlpatterns = [</code>
+            <code>    path('my-view/', my_view),</code>
+            <code>]</code>
+        </section>
+
+        <section id="Templates" class="main-section">
+            <header>Templates</header>
+            <p>Templates define the structure of the HTML documents that a view returns.</p>
+            <p>They can include dynamic content using Django’s template language.</p>
+            <p>Here is a simple template example:</p>
+            <code>&lt;h1&gt;{{ title }}&lt;/h1&gt;</code>
+            <code>&lt;p&gt;{{ content }}&lt;/p&gt;</code>
+            <p>Templates are usually stored in a directory named 'templates' within your app.</p>
+            <p>You can render a template in a view like this:</p>
+            <code>from django.shortcuts import render</code>
+            <code>def my_view(request):</code>
+            <code>    return render(request, 'my_template.html', {'title': 'My Title', 'content': 'My Content'})</code>
+        </section>
+    </main>
 </body>
 </html>
